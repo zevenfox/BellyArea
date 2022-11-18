@@ -17,47 +17,47 @@ def index(request):
     else:
         menu_list = Menu.objects.all().order_by('-id')[:24]
     feed = api_response()
-    for entry in feed:
-        try:
-            get_menu_name = entry['display']['displayName']
-        except:
-            get_menu_name = 'missing menu name'
+    # for entry in feed:
+    #     try:
+    #         get_menu_name = entry['display']['displayName']
+    #     except:
+    #         get_menu_name = 'missing menu name'
 
-        try:
-            get_kcal = [element['value'] for element \
-                in entry['content']['nutrition']['nutritionEstimates'] \
-                    if element['attribute'] == 'ENERC_KCAL'][0]
-        except:
-            get_kcal = -99
-        try:
-            get_fat = [element['value'] for element \
-                in entry['content']['nutrition']['nutritionEstimates'] \
-                    if element['attribute'] == 'FAT_KCAL'][0]
-        except:
-            get_fat = -99
-        try:
-            get_sugar = [element['value'] for element \
-                in entry['content']['nutrition']['nutritionEstimates'] \
-                    if element['attribute'] == 'SUGAR'][0]
-        except:
-            get_sugar = -99
+    #     try:
+    #         get_kcal = [element['value'] for element \
+    #             in entry['content']['nutrition']['nutritionEstimates'] \
+    #                 if element['attribute'] == 'ENERC_KCAL'][0]
+    #     except:
+    #         get_kcal = -99
+    #     try:
+    #         get_fat = [element['value'] for element \
+    #             in entry['content']['nutrition']['nutritionEstimates'] \
+    #                 if element['attribute'] == 'FAT_KCAL'][0]
+    #     except:
+    #         get_fat = -99
+    #     try:
+    #         get_sugar = [element['value'] for element \
+    #             in entry['content']['nutrition']['nutritionEstimates'] \
+    #                 if element['attribute'] == 'SUGAR'][0]
+    #     except:
+    #         get_sugar = -99
 
-        try:
-            get_picture_url = entry['display']['images'][0]
-        except:
-            get_picture_url = ''
+    #     try:
+    #         get_picture_url = entry['display']['images'][0]
+    #     except:
+    #         get_picture_url = ''
 
             
-        menu = Menu(
-            menu_name= get_menu_name,
-            energy_kcal = get_kcal,
-            fat_kcal = get_fat,
-            sugar = get_sugar,
-            picture_url = get_picture_url,
-        )
-        if menu not in Menu.objects.all() \
-            and menu.menu_name != 'missing menu name':
-            menu.save()
+    #     menu = Menu(
+    #         menu_name= get_menu_name,
+    #         energy_kcal = get_kcal,
+    #         fat_kcal = get_fat,
+    #         sugar = get_sugar,
+    #         picture_url = get_picture_url,
+    #     )
+    #     if menu not in Menu.objects.all() \
+    #         and menu.menu_name != 'missing menu name':
+    #         menu.save()
     
     
     return render(request, 'belly/index.html', {"menu_list": menu_list})
