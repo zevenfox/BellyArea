@@ -4,8 +4,10 @@ from django.db.models import Q
 from belly.models import Menu
 from django.views.decorators.cache import cache_page
 from django.views.decorators.vary import vary_on_cookie
-from belly.models import Menu 
 import random
+from .models import *
+from .forms import *
+from .models import Choice, CreateForm
 
 @cache_page(60 * 60)
 @vary_on_cookie
@@ -61,3 +63,29 @@ def index(request):
     
     
     return render(request, 'belly/index.html', {"menu_list": menu_list})
+
+
+# def details(request,menu_id):
+#     if request.method == 'POST':
+#         age_text = request.POST.get("newtext")
+#         print(age_text)
+#         age = Choice(age = age_text)
+#         age.save()
+#         return redirect("index")
+#     else:
+#         return render(request, 'foods/detail.html', {"menu": menu,})
+
+
+def detail(request):
+    if request.method == "POST":
+        form = CreateForm(request.POST)
+        if form.is_valid():
+            form.save()
+    else:
+        form = CreateForm()
+
+    return render(request, 'belly/detail.html', {'form': form})
+
+# def gender(request):
+#     if request.method == 'POST':
+#         gender = request.POST.getlist('gender')

@@ -72,56 +72,284 @@ p {
     margin: 90px;
 }
 
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+body {
+    background-color:#212d38;
+}
+
+
+.title {
+    font-size: 24px;
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 50px;
+    padding: 25px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container .option_item {
+    display: block;
+    position: relative;
+    width: 175px;
+    height: 175px;
+    margin: 10px;
+}
+
+.container .option_item .checkbox {
+    /* This is to hide small checkbox */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 0;
+}
+
+.option_item .option_inner {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    border-radius: 5px;
+    text-align: center;
+    padding: 58px 40px;
+    cursor: pointer;
+    color: #585c68;
+    display: block;
+    border: 5px solid transparent;
+    position: relative;
+}
+
+.option_item .option_inner .icon {
+    margin-bottom: 10px;
+}
+
+.option_item .option_inner .icon .fab {
+    font-size: 32px;
+}
+
+.option_item .option_inner .name {
+    user-select: none;
+    font-family: 'Montserrat';font-size: 16px;
+}
+
+.option_item .checkbox:checked ~ .option_inner.wheat {
+    border-color: #ff8c00;
+    color: #ff8c00;
+}
+
+.option_item .checkbox:checked ~ .option_inner.diary {
+    border-color: #55acee;
+    color: #55acee;
+}
+
+.option_item .checkbox:checked ~ .option_inner.peanut {
+    border-color: #25d366;
+    color: #25d366;
+}
+
+.option_item .checkbox:checked ~ .option_inner.egg {
+    border-color: #be8f00bc;
+    color: #be8f00bc;
+}
+
+
+.option_item .checkbox:checked ~ .option_inner.seafood {
+    border-color: #dd4b39;
+    color: #dd4b39;
+}
+
+.option_item .checkbox:checked ~ .option_inner.lowsex {
+    border-color: #04c4ffbc;
+    color: #04c4ffbc;
+}
+.option_item .checkbox:checked ~ .option_inner.highsex {
+    border-color: #dd4b39;
+    color: #dd4b39;
+}
+.option_item .checkbox:checked ~ .option_inner.lowfat {
+    border-color: #04c4ffbc;
+    color: #04c4ffbc;
+}
+.option_item .checkbox:checked ~ .option_inner.highfat {
+    border-color: #dd4b39;
+    color: #dd4b39;
+}
+
+.option_item .checkbox:checked ~ .option_inner.lowenergy {
+    border-color: #04c4ffbc;
+    color: #04c4ffbc;
+}
+.option_item .checkbox:checked ~ .option_inner.highenergy {
+    border-color: #dd4b39;
+    color: #dd4b39;
+}
+.option_item .checkbox:checked ~ .option_inner.meat {
+    border-color: #f44d00c7;
+    color: #f44d00c7;
+}
+.option_item .checkbox:checked ~ .option_inner.blueberries {
+    border-color: #003df4c7;
+    color: #003df4c7;
+}
+.option_item .checkbox:checked ~ .option_inner.avocado{
+    border-color: #017a39c7;
+    color: #017a39c7;
+}
+.option_item .checkbox:checked ~ .option_inner.onions{
+    border-color: #62fc90c7;
+    color: #62fc90c7;
+}
+.option_item .checkbox:checked ~ .option_inner.herbseasoning{
+    border-color: #419159;
+    color: #419159;
+}
+.option_item .checkbox:checked ~ .option_inner.butter{
+    border-color: #dbd700;
+    color: #dbd700;
+}
+.option_item .checkbox:checked ~ .option_inner.chocolate{
+    border-color: #ff0000;
+    color: #ff0000;
+}
+.option_item .checkbox:checked ~ .option_inner.cheese{
+    border-color: #ffc400;
+    color: #ffc400;
+}
+.option_item .checkbox:checked ~ .option_inner.beginner{
+    border-color: #ff7700;
+    color: #ff7700;
+}
+.option_item .checkbox:checked ~ .option_inner.male{
+    border-color: #3c00ff;
+    color: #3c00ff;
+}
+.option_item .checkbox:checked ~ .option_inner.female{
+    border-color: #f200ff ;
+    color: #f200ff ;
+}
+
+
+
+.option_item .option_inner .tickmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 20px solid;
+    border-color: #000 transparent transparent #000;
+    display: none;
+}
+
+.option_item .option_inner .tickmark:before {
+    content: "";
+    position: absolute;
+    top: -18px;
+    left: -18px;
+    width: 15px;
+    height: 5px;
+    border: 3px solid;
+    border-color: transparent transparent #fff #fff;
+    transform: rotate(-45deg);
+}
+
+.option_item .checkbox:checked ~ .option_inner .tickmark {
+    display: block;
+}
+
+.option_item .option_inner.male .tickmark {
+    border-color: #3c00ff transparent transparent #3c00ff;
+}
+.option_item .option_inner.female .tickmark {
+    border-color: #f200ff transparent transparent #f200ff;
+}
+
+
+
+
+
+
 </style>
+<script src="https://kit.fontawesome.com/f56f1a34bc.js" crossorigin="anonymous"></script>
 <header>
     <h1>Pick up your dish!</h1>
 </header>
-<div class="container">
-    <aside>
-      <h3>Sex</h3>
-      <div>
-        <div><input type="checkbox" name="startingReserves" value="starting" id="starting"><label for="male">Male</label></div>
-        <div><input type="checkbox" name="startingReserves" value="reserves" id="reserves"><label for="reserves">Female</label></div>
-      </div>
-      <h3>Age</h3>
-      <div>
-        <div><input type="checkbox" name="injured" value="injured" id="injured"><label for="injured">2-3</label></div>
-        <div><input type="checkbox" name="injured" value="injured" id="injured"><label for="injured">9-13</label></div>
-        <div><input type="checkbox" name="injured" value="injured" id="injured"><label for="injured">14-18</label></div>
-        <div><input type="checkbox" name="injured" value="injured" id="injured"><label for="injured">19-30</label></div>
-        <div><input type="checkbox" name="injured" value="injured" id="injured"><label for="injured">31-50</label></div>
-        <div><input type="checkbox" name="injured" value="injured" id="injured"><label for="injured">>51</label></div>
-      </div>
-      <h3>Allergy</h3>
-      <div>
-        <div><input type="checkbox" name="position" value="guard" id="guard"><label for="guard">Wheat</label></div>
-        <div><input type="checkbox" name="position" value="forward" id="forward"><label for="forward">Dairy</label></div>
-        <div><input type="checkbox" name="position" value="center" id="center"><label for="center">Peanut</label></div>
-        <div><input type="checkbox" name="position" value="center" id="center"><label for="center">Egg</label></div>
-        <div><input type="checkbox" name="position" value="center" id="center"><label for="center">Seafood</label></div>
-      </div>
-      <h3>I don't want this on my dish</h3>
-      <div>
-        <div><input type="checkbox" name="conference" value="east" id="east"><label for="east">Eastern</label></div>
-        <div><input type="checkbox" name="conference" value="west" id="west"><label for="west">Western</label></div>
-      </div>
-    </aside>
-    <div class="blocks">
-        {% if menu_list%}
-            {% for menu in menu_list %}
-            {% if menu.energy_kcal != -99%}
-            <a class="one-block">
-                <img class="images" src="{{menu.picture_url}}" height="175px" width="289px"></img>
-            <div class="menu-text">
-                <p>{{menu.menu_name}}</p>
-                <p>{{menu.energy_kcal}}</p>
+
+
+<form method="post">
+    {% csrf_token %}
+    <div class="slide2" onchange="getValue2()">
+        <div class="title">
+            Gender
+        </div>
+        <div class="container">
+            <label class="option_item">
+                <input type="radio" class="checkbox" name="male">
+                <div class="option_inner male">
+                <div class="tickmark"></div>
+                <div class="icon"><i class="fa-solid fa-mars"></i></div>
+                <div class="name">Male</div>
             </div>
-            </a>
-            {% endif %}
-            {% endfor %}
+            </label>
+            <label class="option_item">
+                <input type="radio" class="checkbox" checked name="female">
+                <div class="option_inner female">
+                <div class="tickmark"></div>
+                <div class="icon"><i class="fa-solid fa-venus"></i></div>
+                <div class="name">Famale</div>
+                </div>
+            <button onclick="onSubmit()"><i class="fa fa-solid fa-search"></i>Filter</button>
+</form>
+<script>
+    const filter = {
+        gender: {}
+    };
+
+    // get checked value of 
+    const getValue2 = () => {
+        const slide2 = document.querySelector('.slide2');
+        const container = slide2.querySelector('.container');
+        const option_item = container.querySelectorAll('.option_item');
+        const gender = {
+            sex: '',
+        }
+        const radioGroup = Array.from(option_item).map((item) => {
+            return item.querySelector('input[type="radio"]')
+        })
+        gender.sex = radioGroup[0].checked ? 'Male' : 'Female';
+        filter.gender = {...gender};
+        console.log(gender);
+    }
+</script>
+
+<!-- 
+<div class="blocks">
+    {% if menu_list%}
+        {% for menu in menu_list %}
+        {% if menu.energy_kcal != -99%}
+        <a class="one-block">
+            <img class="images" src="{{menu.picture_url}}" height="175px" width="289px"></img>
+        <div class="menu-text">
+            <p>{{menu.menu_name}}</p>
+            <p>{{menu.energy_kcal}}</p>
+        </div>
+        </a>
         {% endif %}
+        {% endfor %}
+    {% endif %}
     </div>
-</div>
+</div> -->
 
 
 {% endblock %}
