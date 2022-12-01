@@ -76,21 +76,31 @@ p {
 <header>
     <h1>Pick up your dish!</h1>
 </header>
+{% csrf_token %}
+<form method="POST">
 <div class="container">
     <aside>
+        {% if username != "" %}
+        <h3>name : {{ username }}</h3> <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+        {% endif %}
       <h3>Sex</h3>
       <div>
-        <div><input type="checkbox" name="startingReserves" value="starting" id="starting"><label for="male">Male</label></div>
-        <div><input type="checkbox" name="startingReserves" value="reserves" id="reserves"><label for="reserves">Female</label></div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="sex" value="male" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              male
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="sex" value="female" id="flexRadioDefault2">
+            <label class="form-check-label" for="flexRadioDefault2">
+              female
+            </label>
+          </div>
       </div>
       <h3>Age</h3>
       <div>
-        <div><input type="checkbox" name="injured" value="injured" id="injured"><label for="injured">2-3</label></div>
-        <div><input type="checkbox" name="injured" value="injured" id="injured"><label for="injured">9-13</label></div>
-        <div><input type="checkbox" name="injured" value="injured" id="injured"><label for="injured">14-18</label></div>
-        <div><input type="checkbox" name="injured" value="injured" id="injured"><label for="injured">19-30</label></div>
-        <div><input type="checkbox" name="injured" value="injured" id="injured"><label for="injured">31-50</label></div>
-        <div><input type="checkbox" name="injured" value="injured" id="injured"><label for="injured">>51</label></div>
+        <div><input type="number" name="age" value="" id="injured"><label>age</label></div>
       </div>
     </aside>
     <div class="blocks">
@@ -100,6 +110,9 @@ p {
             <a class="one-block">
                 <img class="images" src="{{menu.picture_url}}" height="175px" width="289px"></img>
             <div class="menu-text">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="menu" value="{{ menu.menu_name }}" id="flexCheckDefault">
+                  </div>
                 <p>{{menu.menu_name}}</p>
                 <p>{{menu.energy_kcal}}</p>
             </div>
@@ -108,7 +121,10 @@ p {
             {% endfor %}
         {% endif %}
     </div>
+    <div>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </div>
 </div>
-
+</form>
 
 {% endblock %}

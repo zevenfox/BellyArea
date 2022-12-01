@@ -1,0 +1,10 @@
+{% extends "belly/base.html" %} {% load static %} {% block content %}
+
+<div>
+  <ul>
+    {% for i in data %}
+    <li>{{ i }}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}
