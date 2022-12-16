@@ -71,6 +71,6 @@ Django 4.1.1
 ## DEMO run
 You can uses these demo users below to visits the site.
 
-| Username  | Password  |
+| Email  | Password  |
 |-----------|-----------|
-|   admin01  | test01 |
+|   test@gmail.com  | test1234 |
