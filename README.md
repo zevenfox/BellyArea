@@ -53,6 +53,5 @@ You can uses these demo users below to visits the site.
 | Email  | Password  |
 |-----------|-----------|
 |   test@gmail.com  | test1234 |
-=======
-BelleArea is a web server for seeing obesity among people in different areas by collecting data from what food users choose to eat.
+
 
