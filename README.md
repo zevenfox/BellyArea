@@ -16,15 +16,9 @@ Django 4.1.1
 
 1. Clone this project repository to your local machine
     ````
-    git clone https://github.com/jaybjackie/HungryMe.git
+    https://github.com/zevenfox/BellyArea.git
     ````
 2. Go to  this repository directory<br>
-   
-   for `MacOS/Linux`
-   ````
-   cd HungryMe
-   ````
-   
     
 3. Install required packages.
 
@@ -32,33 +26,18 @@ Django 4.1.1
     pip install -r requirements.txt
     ````
 
-4. Modify `sample.env` by the following lines:
-
-    To create SECRET KEY
-    ```
-    python -c 'from django.core.management.utils import get_random_secret_key;print(get_random_secret_key())'
-    ```
-
-    Put the SECRET KEY in .env file
-
-    ```
-    SECRET_KEY = 'YOUR-SECRET-KEY'
-    DEBUG = False
-    ALLOWED_HOSTS = ['.localhost', '127.0.0.1', '[::1]']
-    ```
-
-5. Migrate the database.
+4. Migrate the database.
 
     for `MacOS/Linux`
     ````
     python manage.py migrate
     ````
 
-6. Importing data from `data.json`.
+5. Importing data from `data.json`.
     ````
     python manage.py loaddata data.json
     ````
-7. Run the server.
+6. Run the server.
  
    for `MacOS/Linux`
    ````
